@@ -1,0 +1,23 @@
+{
+  "name": "district",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "argon2": "^0.31.0",
+    "chokidar": "^3.5.3",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^16.3.1",
+    "express": "~4.16.1",
+    "express-session": "^1.17.3",
+    "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.4.3",
+    "mongoose-paginate-v2": "^1.7.31",
+    "morgan": "~1.9.1",
+    "nodemon": "^3.0.1"
+  }
+}

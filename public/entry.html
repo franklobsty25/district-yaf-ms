@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard - Admin One Tailwind CSS Admin Dashboard</title>
+
+    <!-- Tailwind is included -->
+    <link rel="stylesheet" href="stylesheets/main.css?v=1628755089081" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon-16x16.png"
+    />
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#00b4b6" />
+
+    <meta name="description" content="Admin One - free Tailwind dashboard" />
+
+    <meta
+      property="og:url"
+      content="https://justboil.github.io/admin-one-tailwind/"
+    />
+    <meta property="og:site_name" content="JustBoil.me" />
+    <meta property="og:title" content="Admin One HTML" />
+    <meta
+      property="og:description"
+      content="Admin One - free Tailwind dashboard"
+    />
+    <meta
+      property="og:image"
+      content="https://justboil.me/images/one-tailwind/repository-preview-hi-res.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="960" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Admin One HTML" />
+    <meta
+      property="twitter:description"
+      content="Admin One - free Tailwind dashboard"
+    />
+    <meta
+      property="twitter:image:src"
+      content="https://justboil.me/images/one-tailwind/repository-preview-hi-res.png"
+    />
+    <meta property="twitter:image:width" content="1920" />
+    <meta property="twitter:image:height" content="960" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-130795909-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'UA-130795909-1');
+    </script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="app">
+      <nav id="navbar-main" class="navbar is-fixed-top">
+        <div class="navbar-brand">
+          <a class="navbar-item mobile-aside-button">
+            <span class="icon"
+              ><i class="mdi mdi-forwardburger mdi-24px"></i
+            ></span>
+          </a>
+          <div class="navbar-item">
+            <div class="control"
+              ><input placeholder="Search everywhere..." class="input"
+            /></div>
+          </div>
+        </div>
+        <div class="navbar-brand is-right">
+          <a
+            class="navbar-item --jb-navbar-menu-toggle"
+            data-target="navbar-menu"
+          >
+            <span class="icon"
+              ><i class="mdi mdi-dots-vertical mdi-24px"></i
+            ></span>
+          </a>
+        </div>
+        <div class="navbar-menu" id="navbar-menu">
+          <div class="navbar-end">
+            <div class="navbar-item dropdown has-divider has-user-avatar">
+              <a class="navbar-link">
+                <div class="user-avatar">
+                  <img src="images/profile.svg" class="rounded-full" />
+                </div>
+                <div class="is-user-name"><span id="username"></span></div>
+                <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
+              </a>
+              <div class="navbar-dropdown">
+                <a href="profile.html" class="navbar-item">
+                  <span class="icon"><i class="mdi mdi-account"></i></span>
+                  <span>Profile</span>
+                </a>
+                <a href="create-account.html" class="navbar-item">
+                  <span class="icon"><i class="mdi mdi-account-lock-outline"></i></span>
+                  <span>account</span>
+                </a>
+                <hr class="navbar-divider" />
+                <a href="#" class="navbar-item">
+                  <span class="icon"><i class="mdi mdi-logout"></i></span>
+                  <span id="logout">Log Out</span>
+                </a>
+              </div>
+            </div>
+            <a href="dashboard.html" class="navbar-item desktop-icon-only">
+              <img src="images/yaf.jpeg" alt="YAF" class="rounded-full" />
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <aside class="aside is-placed-left is-expanded">
+        <div class="aside-tools">
+          <div> District <b class="font-black">YAF</b> </div>
+        </div>
+        <div class="menu is-menu-main">
+          <p class="menu-label">Overview</p>
+          <ul class="menu-list">
+            <li class="active">
+              <a href="/dashboard.html">
+                <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
+                <span class="menu-item-label">Dashboard</span>
+              </a>
+            </li>
+          </ul>
+          <p class="menu-label">Info</p>
+          <ul class="menu-list">
+            <li class="--set-active-profile-html">
+              <a href="profile.html">
+                <span class="icon"><i class="mdi mdi-account-circle"></i></span>
+                <span class="menu-item-label">Profile</span>
+              </a>
+            </li>
+            <li class="--set-active-forms-html">
+              <a href="entry.html">
+                <span class="icon"
+                  ><i class="mdi mdi-square-edit-outline"></i
+                ></span>
+                <span class="menu-item-label">Add</span>
+              </a>
+            </li>
+            <li id="account">
+              <a href="create-account.html">
+                <span class="icon"
+                  ><i class="mdi mdi-account-lock-outline"></i
+                ></span>
+                <span class="menu-item-label">Create account</span>
+              </a>
+            </li>
+            <li>
+              <a href="change-password.html">
+                <span class="icon"><i class="mdi mdi-lock"></i></span>
+                <span class="menu-item-label">Change password</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <section class="is-title-bar">
+        <div
+          class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0"
+        >
+          <ul>
+            <li>Admin</li>
+            <li>Add</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section main-section">
+        <p id="loading">Loading...</p>
+        <div class="card mb-6">
+          <header class="card-header">
+            <p class="card-header-title">
+              <span class="icon"><i class="mdi mdi-account"></i></span>
+              Add member information
+            </p>
+          </header>
+          <div class="card-content">
+            <form>
+              <div class="field">
+                <div class="field-body">
+                  <div class="field">
+                    <div class="control icons-left icons-right">
+                      <input
+                        class="input"
+                        type="text"
+                        placeholder="Firstname"
+                        name="firstname"
+                      />
+                      <span class="icon left"
+                        ><i class="mdi mdi-account"></i
+                      ></span>
+                      <span
+                        class="icon right"
+                        style="display: none"
+                        id="firstname-check"
+                      >
+                        <i class="mdi mdi-check"></i>
+                      </span>
+                    </div>
+                    <p
+                      class="help"
+                      style="color: red; display: none"
+                      id="firstname-error"
+                      >Firstname is required.</p
+                    >
+                  </div>
+                  <div class="field">
+                    <div class="control icons-left icons-right">
+                      <input
+                        class="input"
+                        type="input"
+                        placeholder="Middlename"
+                        name="middlename"
+                      />
+                      <span class="icon left"
+                        ><i class="mdi mdi-account"></i
+                      ></span>
+                      <span
+                        class="icon right"
+                        style="display: none"
+                        id="middlename-check"
+                      >
+                        <i class="mdi mdi-check"></i
+                      ></span>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="control icons-left icons-right">
+                      <input
+                        class="input"
+                        type="input"
+                        placeholder="Lastname"
+                        name="lastname"
+                      />
+                      <span class="icon left"
+                        ><i class="mdi mdi-account"></i
+                      ></span>
+                      <span
+                        class="icon right"
+                        style="display: none"
+                        id="lastname-check"
+                        ><i class="mdi mdi-check"></i
+                      ></span>
+                    </div>
+                    <p
+                      class="help"
+                      style="color: red; display: none"
+                      id="lastname-error"
+                      >Lastname is required.</p
+                    >
+                  </div>
+                  <div class="field">
+                    <div class="control icons-left icons-right">
+                      <input
+                        class="input"
+                        type="email"
+                        placeholder="Email"
+                        name="email"
+                      />
+                      <span class="icon left"
+                        ><i class="mdi mdi-mail"></i
+                      ></span>
+                      <span
+                        class="icon right"
+                        style="display: none"
+                        id="email-check"
+                        ><i class="mdi mdi-check"></i
+                      ></span>
+                    </div>
+                    <p
+                      class="help"
+                      style="color: red; display: none"
+                      id="email-error"
+                      >Email is required.</p
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <div class="field-body">
+                  <div class="field">
+                    <div class="field addons">
+                      <div class="control">
+                        <input class="input" value="+233" size="4" readonly />
+                      </div>
+                      <div class="control expanded icons-right">
+                        <input
+                          class="input"
+                          type="tel"
+                          placeholder="Phone number"
+                          name="phonenumber"
+                        />
+                        <span
+                          class="icon right"
+                          style="display: none"
+                          id="phone-check"
+                          ><i class="mdi mdi-check"></i
+                        ></span>
+                      </div>
+                    </div>
+                    <p
+                      class="help"
+                      style="color: red; display: none"
+                      id="phone-error"
+                      >Phone number is required.</p
+                    >
+                  </div>
+                  <div class="field">
+                    <small>Date of birth</small>
+                    <div class="control icons-left icons-right">
+                      <input
+                        class="input"
+                        type="date"
+                        placeholder="Date of birth"
+                        name="dob"
+                      />
+                      <span class="icon left"
+                        ><i class="mdi mdi-calendar"></i
+                      ></span>
+                      <span
+                        class="icon right"
+                        style="display: none"
+                        id="dob-check"
+                        ><i class="mdi mdi-check"></i
+                      ></span>
+                    </div>
+                    <p
+                      class="help"
+                      style="color: red; display: none"
+                      id="dob-error"
+                      >Date of birth is required.</p
+                    >
+                  </div>
+                  <div class="field">
+                    <small>Registration date</small>
+                    <div class="control icons-left icons-right">
+                      <input
+                        class="input"
+                        type="date"
+                        placeholder="Registration date"
+                        name="registration-date"
+                      />
+                      <span class="icon left"
+                        ><i class="mdi mdi-calendar"></i
+                      ></span>
+                      <span
+                        class="icon right"
+                        style="display: none"
+                        id="registration-check"
+                        ><i class="mdi mdi-check"></i
+                      ></span>
+                    </div>
+                  </div>
+                  <p
+                    class="help"
+                    style="color: red; display: none"
+                    id="registration-error"
+                    >Registration is required.</p
+                  >
+                </div>
+              </div>
+              <div class="field">
+                <small>Select branch/congregation</small>
+                <div class="control">
+                  <div class="select">
+                    <select>
+                      <option value="">Please select your branch</option>
+                    </select>
+                  </div>
+                </div>
+                <p
+                  class="help"
+                  style="color: red; display: none"
+                  id="branch-select-error"
+                  >Branch is required.</p
+                >
+              </div>
+              <p style="display: none; padding: 2% 0 0 25%;" id="entry-statusMessage"></p>
+              <hr />
+
+              <div class="field grouped">
+                <div class="control">
+                  <button type="submit" class="button green"> Save </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="card mb-6">
+          <div class="card-content">
+            <form>
+              <div class="field">
+                <label class="label">Add a branch</label>
+                <div class="control icons-left icons-right">
+                  <input
+                    class="input"
+                    type="text"
+                    placeholder="Branch/Congregation"
+                    name="branch"
+                  />
+                  <span class="icon left"><i class="mdi mdi-bank"></i></span>
+                  <span
+                    class="icon right"
+                    style="display: none"
+                    id="branch-check"
+                  >
+                    <i class="mdi mdi-check"></i
+                  ></span>
+                </div>
+                <p
+                  class="help"
+                  style="display: none; color: red"
+                  id="branch-error"
+                  >Branch field is required.</p
+                >
+              </div>
+              <p style="display: none; padding: 2% 0 0 25%;" id="branch-statusMessage"></p>
+              <hr />
+
+              <div class="field grouped">
+                <div class="control">
+                  <button type="submit" class="button green"> Save </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div
+          class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0"
+        >
+          <div class="flex items-center justify-start space-x-3">
+            <div> © 2023, Djankrom District YAF </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      $(window).on('load', () => {
+        /* Get user data */
+        const user = JSON.parse(localStorage.getItem('user'));
+        $('#username').text(user.firstname);
+        $('img').attr('alt', user.firstname);
+
+        /* Check user role and hide create account */
+        if (user.role !== 'admin')
+            $('#account').hide();
+
+        /* Load branches */
+        $.ajax({
+          type: 'GET',
+          url: '/api/v1/branches/',
+          dataType: 'json',
+          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+          success: (response) => {
+            const { status, data } = response;
+            if (status === 'success') {
+              $('#loading').hide();
+              $.each(data, (index, value) => {
+                $('select').append(
+                  `<option value="${value._id}">${value.name}</option>`
+                );
+              });
+            }
+          },
+        });
+      });
+
+      $(document).ready(function () {
+        $('form').submit((event) => {
+          event.preventDefault();
+
+          const user = JSON.parse(localStorage.getItem('user'));
+          const selected = $(':selected').val();
+          const firstname = $('input[name=firstname]').val();
+          const middlename = $('input[name=middlename]').val();
+          const lastname = $('input[name=lastname]').val();
+          const email = $('input[name=email]').val();
+          const phonenumber = $('input[name=phonenumber]').val();
+          const dob = $('input[name=dob]').val();
+          const registrationDate = $('input[name=registration-date]').val();
+
+          if (!firstname) {
+            $('#firstname-error').show();
+            $('#firstname-check').hide();
+            return;
+          } else {
+            $('#firstname-check').show();
+            $('#firstname-error').hide();
+          }
+
+          if (!lastname) {
+            $('#lastname-error').show();
+            $('#lastname-check').hide();
+            return;
+          } else {
+            $('#lastname-check').show();
+            $('#lastname-error').hide();
+          }
+
+          if (!email) {
+            $('#email-error').show();
+            $('#email-check').hide();
+            return;
+          } else {
+            $('#email-check').show();
+            $('#email-error').hide();
+          }
+
+          if (!phonenumber) {
+            $('#phone-error').show();
+            $('#phone-check').hide();
+            return;
+          } else {
+            $('#phone-check').show();
+            $('#phone-error').hide();
+          }
+
+          if (!dob) {
+            $('#dob-error').show();
+            $('#dob-check').hide();
+            return;
+          } else {
+            $('#dob-check').show();
+            $('#dob-error').hide();
+          }
+
+          if (!registrationDate) {
+            $('#registration-error').show();
+            $('#registration-check').hide();
+            return;
+          } else {
+            $('#registration-check').show();
+            $('#registration-error').hide();
+          }
+
+          if (!selected) {
+            $('#branch-select-error').show();
+            return;
+          } else {
+            $('#branch-select-error').hide();
+          }
+
+          const data = {
+            firstname,
+            lastname,
+            email,
+            phonenumber,
+            dob,
+            registrationDate,
+            branch: selected,
+            createdBy: user.id,
+          };
+
+          if (middlename) {
+            $('#middlename-check').show();
+            data.middlename = middlename;
+          }
+
+          $.ajax({
+            type: 'POST',
+            url: '/api/v1/persons/create',
+            data,
+            dataType: 'json',
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+            success: (response) => {
+              const { status, message } = response;
+              if (status === 'success') {
+                $('#entry-statusMessage').css('color', 'green');
+                $('#entry-statusMessage').show();
+                $('#entry-statusMessage').text(message);
+                $('input[name=firstname]').val('');
+                $('input[name=middlename]').val('');
+                $('input[name=lastname]').val('');
+                $('input[name=email]').val('');
+                $('input[name=phonenumber]').val('');
+                $('input[name=dob]').val('');
+                $('input[name=registration-date]').val('');
+                $(':selected').val('');
+                $('#firstname-check').hide();
+                $('#middlename-check').hide();
+                $('#lastname-check').hide();
+                $('#email-check').hide();
+                $('#phone-check').hide();
+                $('#dob-check').hide();
+                $('#registration-check').hide();
+              } else {
+                $('#entry-statusMessage').css('color', 'red');
+                $('#entry-statusMessage').show();
+                $('#entry-statusMessage').text(message);
+              }
+            },
+          });
+        });
+      });
+
+      /* Handling logout */
+      $('#logout').click((event) => {
+        event.preventDefault();
+        localStorage.removeItem('user');
+        localStorage.removeItem('token');
+        localStorage.removeItem('district-metadata');
+        localStorage.removeItem('branch-metadata');
+        window.location.href = '/';
+      });
+
+      $('form').submit((event) => {
+        event.preventDefault();
+        const branch = $('input[name="branch"]').val();
+        const user = JSON.parse(localStorage.getItem('user'));
+
+        if (!branch) {
+          $('#branch-error').show();
+          $('#branch-check').hide();
+          return;
+        } else {
+          $('#branch-check').show();
+          $('#branch-error').hide();
+        }
+
+        $.ajax({
+          type: 'POST',
+          url: '/api/v1/branches/create',
+          data: { name: branch, createdBy: user.id },
+          dataType: 'json',
+          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+          success: (response) => {
+            const { status, message } = response;
+
+            if (status === 'success') {
+              $('#branch-statusMessage').css('color', 'green');
+              $('#branch-statusMessage').show();
+              $('#branch-statusMessage').text(message);
+              $('input[name=branch]').val('');
+            } else {
+              $('#branch-statusMessage').css('color', 'red');
+              $('#branch-statusMessage').show();
+              $('#branch-statusMessage').text(message);
+            }
+          },
+        });
+      });
+    </script>
+
+    <!-- Scripts below are for demo only -->
+    <script
+      type="text/javascript"
+      src="javascripts/main.min.js?v=1628755089081"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+    ></script>
+
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        'script',
+        'https://connect.facebook.net/en_US/fbevents.js'
+      );
+      fbq('init', '658339141622648');
+      fbq('track', 'PageView');
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=658339141622648&ev=PageView&noscript=1"
+    /></noscript>
+
+    <!-- Icons below are for demo only. Feel free to use any icon pack. Docs: https://bulma.io/documentation/elements/icon/ -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css"
+    />
+  </body>
+</html>

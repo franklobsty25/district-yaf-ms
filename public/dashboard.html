@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - Admin One Tailwind CSS Admin Dashboard</title>
+
+  <!-- Tailwind is included -->
+  <link rel="stylesheet" href="stylesheets/main.css?v=1628755089081">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png"/>
+  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#00b4b6"/>
+
+  <meta name="description" content="Admin One - free Tailwind dashboard">
+
+  <meta property="og:url" content="https://justboil.github.io/admin-one-tailwind/">
+  <meta property="og:site_name" content="JustBoil.me">
+  <meta property="og:title" content="Admin One HTML">
+  <meta property="og:description" content="Admin One - free Tailwind dashboard">
+  <meta property="og:image" content="https://justboil.me/images/one-tailwind/repository-preview-hi-res.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="960">
+
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Admin One HTML">
+  <meta property="twitter:description" content="Admin One - free Tailwind dashboard">
+  <meta property="twitter:image:src" content="https://justboil.me/images/one-tailwind/repository-preview-hi-res.png">
+  <meta property="twitter:image:width" content="1920">
+  <meta property="twitter:image:height" content="960">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130795909-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-130795909-1');
+  </script>
+   <script
+   src="https://code.jquery.com/jquery-3.7.0.js"
+   integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+   crossorigin="anonymous"
+ ></script>
+
+</head>
+<body>
+
+<div id="app">
+
+<nav id="navbar-main" class="navbar is-fixed-top">
+  <div class="navbar-brand">
+    <a class="navbar-item mobile-aside-button">
+      <span class="icon"><i class="mdi mdi-forwardburger mdi-24px"></i></span>
+    </a>
+    <div class="navbar-item">
+      <div class="control"><input placeholder="Search everywhere..." class="input"></div>
+    </div>
+  </div>
+  <div class="navbar-brand is-right">
+    <a class="navbar-item --jb-navbar-menu-toggle" data-target="navbar-menu">
+      <span class="icon"><i class="mdi mdi-dots-vertical mdi-24px"></i></span>
+    </a>
+  </div>
+  <div class="navbar-menu" id="navbar-menu">
+    <div class="navbar-end">
+      <div class="navbar-item dropdown has-divider has-user-avatar">
+        <a class="navbar-link">
+          <div class="user-avatar">
+            <img src="images/profile.svg" class="rounded-full">
+          </div>
+          <div class="is-user-name"><span id="username"></span></div>
+          <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
+        </a>
+        <div class="navbar-dropdown">
+          <a href="profile.html" class="navbar-item">
+            <span class="icon"><i class="mdi mdi-account"></i></span>
+            <span>Profile</span>
+          </a>
+          <a href="create-account.html" class="navbar-item">
+            <span class="icon"><i class="mdi mdi-account-lock-outline"></i></span>
+            <span>account</span>
+          </a>
+          <hr class="navbar-divider">
+          <a href="#" class="navbar-item">
+            <span class="icon"><i class="mdi mdi-logout"></i></span>
+            <span id="logout">Log Out</span>
+          </a>
+        </div>
+      </div>
+      <a href="dashboard.html" class="navbar-item desktop-icon-only">
+        <img src="images/yaf.jpeg" alt="YAF" class="rounded-full">
+      </a>
+    </div>
+  </div>
+</nav>
+
+<aside class="aside is-placed-left is-expanded">
+  <div class="aside-tools">
+    <div>
+      District <b class="font-black">YAF</b>
+    </div>
+  </div>
+  <div class="menu is-menu-main">
+    <p class="menu-label">Overview</p>
+    <ul class="menu-list">
+      <li class="active">
+        <a href="dashboard.html">
+          <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
+          <span class="menu-item-label">Dashboard</span>
+        </a>
+      </li>
+    </ul>
+    <p class="menu-label">Info</p>
+    <ul class="menu-list">
+      <li class="--set-active-profile-html">
+        <a href="profile.html">
+          <span class="icon"><i class="mdi mdi-account-circle"></i></span>
+          <span class="menu-item-label">Profile</span>
+        </a>
+      </li>
+      <li class="--set-active-forms-html">
+        <a href="entry.html">
+          <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
+          <span class="menu-item-label">Add</span>
+        </a>
+      </li>
+      <li id="account">
+        <a href="create-account.html">
+          <span class="icon"><i class="mdi mdi-account-lock-outline"></i></span>
+          <span class="menu-item-label">Create account</span>
+        </a>
+      </li>
+      <li>
+        <a href="change-password.html">
+          <span class="icon"><i class="mdi mdi-lock"></i></span>
+          <span class="menu-item-label">Change password</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside>
+
+<section class="is-title-bar">
+  <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+    <ul>
+      <li>Admin</li>
+      <li>Dashboard</li>
+    </ul>
+  </div>
+</section>
+
+  <section class="section main-section">
+    <span id="loading">Loading...</span>
+    <div class="grid gap-6 grid-cols-1 md:grid-cols-3 mb-6">
+        <div class="card">
+          <div class="card-content">
+            <div class="flex items-center justify-between">
+              <div class="widget-label">
+                <h3>
+                  Total members
+                </h3>
+                <h1 id="members">
+                  0
+                </h1>
+              </div>
+              <span class="icon widget-icon text-green-500"><i class="mdi mdi-account-multiple mdi-48px"></i></span>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <div class="flex items-center justify-between">
+              <div class="widget-label">
+                <h3>
+                  Total branches
+                </h3>
+                <h1 id="branches">
+                  0
+                </h1>
+              </div>
+              <span class="icon widget-icon text-blue-500"><i class="mdi mdi-bank-outline mdi-48px"></i></span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="card">
+          <div class="card-content">
+            <div class="flex items-center justify-between">
+              <div class="widget-label">
+                <h3>
+                  Today registration
+                </h3>
+                <h1 id="registrations">
+                  0
+                </h1>
+              </div>
+              <span class="icon widget-icon text-red-500"><i class="mdi mdi-finance mdi-48px"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card has-table" id="district-block" style="display: none">
+        <header class="card-header">
+          <p class="card-header-title">
+            <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
+            District Members
+          </p>
+          <a href="#" class="card-header-icon">
+            <span class="icon"><i class="mdi mdi-reload" id="district-reload"></i></span>
+          </a>
+        </header>
+        <div class="card-content">
+          <table>
+            <thead>
+            <tr>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Email</th>
+              <th>Branch</th>
+              <th>Registration date</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody  id="district-members">
+            </tbody>
+          </table>
+          <div class="table-pagination">
+            <div class="flex items-center justify-between">
+              <div class="buttons">
+                <button type="button" class="button" id="district-prev"><<</button>
+                <button type="button" class="button" id="district-next">>></button>
+              </div>
+              <small id="district-totalDocs"></small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-content">
+        <div class="card has-table">
+          <header class="card-header">
+            <p class="card-header-title">
+              <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
+              Branch members
+            </p>
+              <div class="control">
+                <small>
+                  <div class="select">
+                    <select>
+                      <option value="">Filter by branch</option>
+                    </select onchange="">
+                  </div>
+                </small>
+              </div>
+            <a href="#" class="card-header-icon">
+              <span class="icon"><i class="mdi mdi-reload" id="branch-reload"></i></span>
+            </a>
+          </header>
+          <div class="card-content">
+            <table style="display: none">
+              <thead>
+              <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Branch</th>
+                <th>Registration date</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody id="branch-members">
+              </tbody>
+            </table>
+            <div class="table-pagination" style="display: none" id="branch-pagination">
+              <div class="flex items-center justify-between">
+                <div class="buttons">
+                  <button type="button" class="button" id="branch-prev"><<</button>
+                  <button type="button" class="button" id="branch-next">>></button>
+                </div>
+                <small id="branch-totalDocs"></small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </section>
+
+<footer class="footer">
+  <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0">
+    <div class="flex items-center justify-start space-x-3">
+      <div>
+        © 2023, Djankrom District YAF
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="sample-modal-2" class="modal">
+  <div class="modal-background --jb-modal-close"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Edit Details</p>
+    </header>
+    <section class="modal-card-body">
+      <div class="card mb-6">
+        <div class="card-content">
+          <form>
+            <div class="field">
+              <div class="field-body">
+                <div class="field">
+                  <div class="control icons-left icons-right">
+                    <input class="input" type="text" placeholder="Firstname">
+                    <span class="icon left"><i class="mdi mdi-account"></i></span>
+                    <span class="icon right"><i class="mdi mdi-check"></i></span>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control icons-left icons-right">
+                    <input class="input" type="email" placeholder="Middlename">
+                    <span class="icon left"><i class="mdi mdi-account"></i></span>
+                    <span class="icon right"><i class="mdi mdi-check"></i></span>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control icons-left icons-right">
+                    <input class="input" type="email" placeholder="Lastname">
+                    <span class="icon left"><i class="mdi mdi-account"></i></span>
+                    <span class="icon right"><i class="mdi mdi-check"></i></span>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control icons-left icons-right">
+                    <input class="input" type="email" placeholder="Email">
+                    <span class="icon left"><i class="mdi mdi-mail"></i></span>
+                    <span class="icon right"><i class="mdi mdi-check"></i></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="field-body">
+                <div class="field">
+                  <div class="field addons">
+                    <div class="control">
+                      <input class="input" value="+233" size="4" readonly>
+                    </div>
+                    <div class="control expanded icons-right">
+                      <input class="input" type="tel" placeholder="Phone number">
+                      <span class="icon right"><i class="mdi mdi-check"></i></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button --jb-modal-close">Dismiss</button>
+      <button class="button blue">Edit</button>
+    </footer>
+  </div>
+</div>
+
+</div>
+
+<script>
+
+  /* Loading data from database */
+  loadDataFromSource();
+
+  $(document).ready(function() {
+
+    $('#district-reload').click((event) => {
+      event.preventDefault();
+      location.reload(true);
+    });
+
+    $('#branch-reload').click((event) => {
+      event.preventDefault();
+      location.reload(true);
+    });
+
+    /* District next page handler */
+    $('#district-prev').click((event) => {
+      event.preventDefault();
+
+      const metadata = JSON.parse(localStorage.getItem('district-metadata'));
+      const prevPage = metadata.page > 1 ? metadata.page-- : metadata.page;
+      
+      $('#district-members').text('');
+        $.ajax({
+          type: 'GET',
+          url: `/api/v1/persons?page=${prevPage}`,
+          dataType: 'json',
+          headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`},
+          success: (response) => {
+            if (response.status === 'success') {
+              
+              const { data, metadata } = response;
+              localStorage.setItem('metadata', JSON.stringify(metadata));
+
+              $.each(data, (index, value) => {
+
+                $('#district-members').append(` <tr>
+                  <td data-label="Firstname">${value.firstname}</td>
+                  <td data-label="Lastname">${value.lastname}</td>
+                  <td data-label="Email">${value.email}</td>
+                  <td data-label="Branch"">${value.branches.length > 0 ? value.branches.shift().name : ''}</td>
+                  <td data-label="Registration date">
+                    <small class="text-gray-500" title="Oct 25, 2021">${new Date(value.registrationDate).toDateString()}</small>
+                  </td>
+                </tr>`);
+              });
+
+            }
+          }
+        });
+    });
+
+    /* District previous page handler */
+    $('#district-next').click((event) => {
+      event.preventDefault();
+
+      const metadata = JSON.parse(localStorage.getItem('district-metadata'));
+      const nextPage = metadata.page > metadata.totalPages ? metadata.totalPages : metadata.page++
+      
+      $('#district-members').text('');
+        $.ajax({
+          type: 'GET',
+          url: `/api/v1/persons?page=${nextPage}`,
+          dataType: 'json',
+          headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`},
+          success: (response) => {
+            if (response.status === 'success') {
+              
+              const { data, metadata } = response;
+              localStorage.setItem('metadata', JSON.stringify(metadata));
+
+              $.each(data, (index, value) => {
+
+                $('#district-members').append(` <tr>
+                  <td data-label="Firstname">${value.firstname}</td>
+                  <td data-label="Lastname">${value.lastname}</td>
+                  <td data-label="Email">${value.email}</td>
+                  <td data-label="Branch"">${value.branches.length > 0 ? value.branches.shift().name : ''}</td>
+                  <td data-label="Registration date">
+                    <small class="text-gray-500" title="Oct 25, 2021">${new Date(value.registrationDate).toDateString()}</small>
+                  </td>
+                </tr>`);
+              });
+
+            }
+          }
+        });
+    });
+
+    /* Selection processing */
+    $('select').change((event) => {
+      event.preventDefault();
+      
+      const selected = $(':selected').val();
+      $('#branch-members').text('');
+
+      $.ajax({
+      type: 'GET',
+      url: `/api/v1/persons/${selected}`,
+      dataType: 'json',
+      headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`},
+      success: (response) => {
+        
+        const { branch: { name }, members: { docs, ...metadata } } = response.data;
+        localStorage.setItem('branch-metadata', JSON.stringify({ ...metadata, selected}));
+
+        if (response.status === 'success') {
+          $('table').css('display', 'block');
+          $('#branch-pagination').css('display', 'block');
+          $('#branch-totalDocs').text(`Page ${metadata.page} of ${metadata.totalDocs}`);
+          
+          $.each(docs, (index, value) => {
+            $('#branch-members').append(` <tr>
+              <td data-label="Firstname">${value.firstname}</td>
+              <td data-label="Lastname">${value.lastname}</td>
+              <td data-label="Email"><a href="edit.html">${value.email}</a></td>
+              <td data-label="Branch">${name}</td>
+              <td data-label="Registration date">
+                <small class="text-gray-500" title=${new Date(value.registrationDate).toDateString()}>
+                  ${new Date(value.registrationDate).toDateString()}</small>
+              </td>
+            </tr>`);
+          });
+        }
+      }
+    });
+    });
+
+    /* Handle branch previous page */
+    $('#branch-prev').click((event) => {
+      event.preventDefault();
+
+      const metadata = JSON.parse(localStorage.getItem('branch-metadata'));
+
+      metadata.hasPrevPage ? $('#branch-prev').addClass('active') : $('#branch-prev').removeClass('active');
+
+      if (metadata.hasPrevPage)
+        $.ajax({
+        type: 'GET',
+        url: `/api/v1/persons/${metadata.selected}?page=${metadata.prevPage}`,
+        dataType: 'json',
+        headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`},
+        success: (response) => {
+          $('#branch-members').text('');
+          
+          const { branch: { name }, members: { docs, ...metadata } } = response.data;
+          localStorage.setItem('branch-metadata', JSON.stringify({ ...metadata, selected: metadata.selected }));
+
+          if (response.status === 'success') {
+            $('table').css('display', 'block');
+            $('#branch-pagination').css('display', 'block');
+            $('#branch-totalDocs').text(`Page ${metadata.page} of ${metadata.totalDocs}`);
+            
+            $.each(docs, (index, value) => {
+              $('#branch-members').append(` <tr>
+                <td data-label="Firstname">${value.firstname}</td>
+                <td data-label="Lastname">${value.lastname}</td>
+                <td data-label="Email">${value.email}</td>
+                <td data-label="Branch"">${name}</td>
+                <td data-label="Registration date">
+                  <small class="text-gray-500" title="${new Date(value.registrationDate).toDateString()}">
+                    ${new Date(value.registrationDate).toDateString()}</small>
+                </td>
+              </tr>`);
+            });
+          }
+        }
+      });
+      
+    });
+
+     /* Handle branch next page */
+     $('#branch-next').click((event) => {
+      event.preventDefault();
+
+      const metadata = JSON.parse(localStorage.getItem('branch-metadata'));
+
+      metadata.hasNextPage ? $('#branch-next').addClass('active') : $('#branch-prev').removeClass('active');
+
+      if (metadata.hasNextPage)
+        $.ajax({
+          type: 'GET',
+          url: `/api/v1/persons/${metadata.selected}?page=${metadata.nextPage}`,
+          dataType: 'json',
+          headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`},
+          success: (response) => {
+            $('#branch-members').text('');
+            
+            const { branch: { name }, members: { docs, ...metadata } } = response.data;
+            localStorage.setItem('branch-metadata', JSON.stringify({ ...metadata, selected: metadata.selected }));
+
+            if (response.status === 'success') {
+              $('table').css('display', 'block');
+              $('#branch-pagination').css('display', 'block');
+              $('#branch-totalDocs').text(`Page ${metadata.page} of ${metadata.totalDocs}`);
+              
+              $.each(docs, (index, value) => {
+                $('#branch-members').append(` <tr>
+                  <td data-label="Firstname">${value.firstname}</td>
+                  <td data-label="Lastname">${value.lastname}</td>
+                  <td data-label="Email">${value.email}</td>
+                  <td data-label="Branch"">${name}</td>
+                  <td data-label="Registration date">
+                    <small class="text-gray-500" title="${new Date(value.registrationDate).toDateString()}">
+                      ${new Date(value.registrationDate).toDateString()}</small>
+                  </td>
+                </tr>`);
+              });
+            }
+          }
+        });
+
+     });
+     
+    /* Handling logout */
+    $('#logout').click((event) => {
+      event.preventDefault();
+      localStorage.removeItem('user');
+      localStorage.removeItem('token');
+      localStorage.removeItem('district-metadata');
+      localStorage.removeItem('branch-metadata');
+      window.location.href = '/';
+    });
+
+  });
+
+  function loadDataFromSource() {
+   
+    $(window).on('load', () => {
+    
+    /* Get user data */
+    const user = JSON.parse(localStorage.getItem('user'));
+    $('#username').text(user.firstname);
+    $('img').attr('alt', user.firstname);
+
+    /* Check user role and hide create account */
+    if (user.role !== 'admin')
+      $('#account').hide();
+
+    /* Load total members data */
+    $.ajax({
+      type: 'GET',
+      url: '/api/v1/persons/statistics',
+      dataType: 'json',
+      headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`},
+      success: (response) => {
+        $('#loading').hide();
+        if (response.status === 'success') {
+          $('#members').text(response.data.total);
+        }
+      }
+    });
+
+    /* Load total branches data */
+    $.ajax({
+      type: 'GET',
+      url: '/api/v1/branches/count',
+      dataType: 'json',
+      headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`},
+      success: (response) => {
+        if (response.status === 'success') {
+          $('#branches').text(response.data.total);
+        }
+      }
+    });
+
+    /* Load total registrations at current date data */
+    $.ajax({
+      type: 'GET',
+      url: '/api/v1/persons/statistics?registration=current',
+      dataType: 'json',
+      headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`},
+      success: (response) => {
+        if (response.status === 'success') {
+          $('#registrations').text(response.data.total);
+        }
+      }
+    });
+
+    /* Load district members data */
+    $.ajax({
+      type: 'GET',
+      url: '/api/v1/persons/',
+      dataType: 'json',
+      headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`},
+      success: (response) => {
+        if (response.status === 'success') {
+          
+          const { data, metadata } = response;
+          localStorage.setItem('district-metadata', JSON.stringify(metadata));
+          $('#district-totalDocs').text(`Page ${metadata.page} of ${metadata.totalDocs}`);
+
+          $.each(data, (index, value) => {
+
+            $('#district-members').append(`<tr>
+              <td data-label="Firstname">${value.firstname}</td>
+              <td data-label="Lastname">${value.lastname}</td>
+              <td data-label="Email"><a href="#">${value.email}</a></td>
+              <td data-label="Branch">${value.branches.length > 0 ? value.branches.shift().name : ''}</td>
+              <td data-label="Registration date">
+                <small class="text-gray-500" title=${new Date(value.registrationDate).toDateString()}>
+                  ${new Date(value.registrationDate).toDateString()}</small>
+              </td>
+            </tr>`);
+          });
+
+          if (data.length > 0)
+            $('#district-block').css('display', 'block');
+        }
+      }
+    });
+
+    /* Load branches */
+    $.ajax({
+      type: 'GET',
+      url: '/api/v1/branches/',
+      dataType: 'json',
+      headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`},
+      success: (response) => {
+        const { status, data } = response;
+        if (status === 'success') {
+          $.each(data, (index, value) => {
+            $('select').append(`<option value="${value._id}">${value.name}</option>`);
+          });
+        }
+      }
+    });
+
+  });
+  }
+
+</script>
+
+<!-- Scripts below are for demo only -->
+<script type="text/javascript" src="javascripts/main.min.js?v=1628755089081"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+
+
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '658339141622648');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=658339141622648&ev=PageView&noscript=1"/></noscript>
+
+<!-- Icons below are for demo only. Feel free to use any icon pack. Docs: https://bulma.io/documentation/elements/icon/ -->
+<link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
+
+</body>
+</html>
