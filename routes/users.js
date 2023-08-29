@@ -49,7 +49,7 @@ router.get('/', authenticate, function (req, res, next) {
   res.json({ status: 'success', data: { user: req.user } });
 });
 
-router.post('/login', async function (req, res, next) {
+router.post('/login', function (req, res, next) {
   const { email, password } = req.body;
   User.findOne({ email, isDeleted: { $ne: true } })
     .then((user) => {
@@ -69,6 +69,10 @@ router.post('/login', async function (req, res, next) {
                   if (err) {
                     next(err);
                   }
+
+                  user.lastLogin = new Date();
+                  user.save();
+
                   res.json({
                     status: 'success',
                     message: 'Login successful',
