@@ -164,6 +164,46 @@
       <section class="section main-section">
         <p id="loading">Loading...</p>
         <div class="card mb-6">
+          <div class="card-content">
+            <form>
+              <div class="field">
+                <label class="label">Add a branch</label>
+                <div class="control icons-left icons-right">
+                  <input
+                    class="input"
+                    type="text"
+                    placeholder="Branch/Congregation"
+                    name="branch"
+                  />
+                  <span class="icon left"><i class="mdi mdi-bank"></i></span>
+                  <span
+                    class="icon right"
+                    style="display: none"
+                    id="branch-check"
+                  >
+                    <i class="mdi mdi-check"></i
+                  ></span>
+                </div>
+                <p
+                  class="help"
+                  style="display: none; color: red"
+                  id="branch-error"
+                  >Branch field is required.</p
+                >
+              </div>
+              <p style="display: none; padding: 2% 0 0 25%;" id="branch-statusMessage"></p>
+              <hr />
+
+              <div class="field grouped">
+                <div class="control">
+                  <button type="submit" class="button green"> Save </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="card mb-6">
           <header class="card-header">
             <p class="card-header-title">
               <span class="icon"><i class="mdi mdi-account"></i></span>
@@ -383,45 +423,6 @@
           </div>
         </div>
 
-        <div class="card mb-6">
-          <div class="card-content">
-            <form>
-              <div class="field">
-                <label class="label">Add a branch</label>
-                <div class="control icons-left icons-right">
-                  <input
-                    class="input"
-                    type="text"
-                    placeholder="Branch/Congregation"
-                    name="branch"
-                  />
-                  <span class="icon left"><i class="mdi mdi-bank"></i></span>
-                  <span
-                    class="icon right"
-                    style="display: none"
-                    id="branch-check"
-                  >
-                    <i class="mdi mdi-check"></i
-                  ></span>
-                </div>
-                <p
-                  class="help"
-                  style="display: none; color: red"
-                  id="branch-error"
-                  >Branch field is required.</p
-                >
-              </div>
-              <p style="display: none; padding: 2% 0 0 25%;" id="branch-statusMessage"></p>
-              <hr />
-
-              <div class="field grouped">
-                <div class="control">
-                  <button type="submit" class="button green"> Save </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
       </section>
 
       <footer class="footer">

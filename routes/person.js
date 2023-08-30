@@ -4,43 +4,39 @@ const Person = require('../models/person');
 const Branch = require('../models/branch');
 const validator = require('../validation/validators');
 const { authenticate } = require('../authentication');
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 
 router.get('/', authenticate, (req, res, next) => {
-  const page = parseInt(req.query.page) || 1;
-  const limit = parseInt(req.query.limit) || 10;
+  const query = {
+    $lookup: {
+      from: 'branches',
+      localField: 'branch',
+      foreignField: '_id',
+      pipeline: [
+        { $sort: { createdAt: -1 } },
+        { $match: { isDeleted: { $ne: true } } },
+      ],
+      as: 'branches',
+    },
+  };
 
-  Person.countDocuments({ isDeleted: { $ne: true } })
-    .then((count) => {
-      const query = {
-        $lookup: {
-          from: 'branches',
-          localField: 'branch',
-          foreignField: '_id',
-          pipeline: [
-            { $sort: { createdAt: -1 } },
-            { $match: { isDeleted: { $ne: true } } },
-          ],
-          as: 'branches',
-        },
-      };
-
-      Person.aggregate([query])
-        .skip((page - 1) * limit)
-        .limit(limit)
-        .then((members) => {
-          res.json({
-            status: 'success',
-            message: 'Members fetch successfully.',
-            data: members,
-            metadata: {
-              page,
-              perPage: limit,
-              totalPages: Math.ceil(count / limit),
-              totalDocs: count,
-            },
-          });
-        })
-        .catch(next);
+  Person.aggregate([query])
+    .then((members) => {
+      const data = members.map((m) => {
+        return {
+          firstname: m.firstname,
+          lastname: m.lastname,
+          email: m.email,
+          branch: m.branches?.shift()?.name || '',
+          registrationDate: new Date(m.registrationDate).toDateString(),
+        };
+      });
+      res.json({
+        status: 'success',
+        message: 'Members fetch successfully.',
+        data,
+      });
     })
     .catch(next);
 });
@@ -89,31 +85,28 @@ router.get('/statistics', authenticate, (req, res, next) => {
 });
 
 router.get('/:branch', authenticate, (req, res, next) => {
-  const { page = 1, limit = 10, all = false } = req.query;
-
-  const query = {
-    branch: req.params.branch,
-    isDeleted: { $ne: true },
-  };
-
-  Branch.findById(req.params.branch)
-    .then((branch) => {
-      Person.paginate(query, {
-        page,
-        limit,
-        pagination: !all,
-        sort: { createdAt: -1 },
+  Branch.findById(req.params.branch).then((branch) => {
+    Person.find({ branch: req.params.branch, isDeleted: { $ne: true } })
+      .then((members) => {
+        const data = members.map((member) => {
+          return {
+            firstname: member.firstname,
+            lastname: member.lastname,
+            email: member.email,
+            branch: branch?.name || '',
+            registrationDate: new Date(member.registrationDate).toDateString(),
+          };
+        });
+        res.json({
+          status: 'success',
+          message: `${
+            branch?.name || ''
+          } members fetched successfully.`,
+          data,
+        });
       })
-        .then((members) => {
-          res.json({
-            status: 'success',
-            message: 'Branche members fetched successfully.',
-            data: { branch, members },
-          });
-        })
-        .catch(next);
-    })
-    .catch(next);
+      .catch(next);
+  });
 });
 
 router.get('/:person', authenticate, (req, res, next) => {
