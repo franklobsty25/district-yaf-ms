@@ -162,7 +162,6 @@
       </section>
 
       <section class="section main-section">
-        <p id="loading">Loading...</p>
         <div class="card mb-6">
           <div class="card-content">
             <form>
@@ -456,7 +455,6 @@
           success: (response) => {
             const { status, data } = response;
             if (status === 'success') {
-              $('#loading').hide();
               $.each(data, (index, value) => {
                 $('select').append(
                   `<option value="${value._id}">${value.name}</option>`
